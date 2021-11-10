@@ -3,7 +3,7 @@
 
 ############################################################################################
 ##
-## Script to install the latest Company Portal
+## Script to install the latest Custom Office Version
 ##
 ############################################################################################
 
@@ -19,7 +19,7 @@
 
 # User Defined variables
 weburl="https://go.microsoft.com/fwlink/?linkid=2009112"                        # What is the Azure Blob Storage URL?
-localcopy="http://192.168.68.139/Office/Office365AppsFormacOS.pkg"    # This is your local copy of the OfficeBusinessPro.pkg file. You need to handle this independently, comment out if not required
+localcopy="http://192.168.68.139/Office/Office365AppsFormacOS.pkg"              # This is your local copy of the OfficeBusinessPro.pkg file. You need to handle this independently, comment out if not required
 appname="Microsoft Office"                                                      # The name of our App deployment script (also used for Octory monitor)
 logandmetadir="/Library/Logs/Microsoft/IntuneScripts/installOffice"             # The location of our logs and last updated data
 terminateprocess="true"                                                         # Do we want to terminate the running process? If false we'll wait until its not running
@@ -125,6 +125,9 @@ function OfficeURLCheck() {
         echo "$(date) |  + macOS 11.x Big Sur detected, installing latest available version"
         ;;
 
+    12.*)
+        echo "$(date) |  + macOS 12.x Monterey detected, installing latest available version"
+        ;;
     *)
         echo "$(date) |  + Unknown OS $os_ver"
         ;;
